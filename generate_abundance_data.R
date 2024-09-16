@@ -11,7 +11,10 @@ generate_abundance_data <- function(student_id){
                             "Phalarope", "Sandpiper"))
 
   for(i in 1:20){
-    assign(paste0(bird_species[i]),random_vectors[,i], inherits = TRUE)
-  }
-
+    if(i == sample(1:20, 1)){
+      assign(paste0(bird_species[i]), as.character(random_vectors[,i]), inherits = TRUE)
+      } else {
+        assign(paste0(bird_species[i]), random_vectors[,i], inherits = TRUE)
+      }
+    }
 }
