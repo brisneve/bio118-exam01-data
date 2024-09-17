@@ -1,0 +1,19 @@
+generate_abundance_data <- function(student_id){
+  # Set the seed for reproducibility (optional)
+  set.seed(student_id)
+  # Generate a list of 20 vectors, each containing 50 random integers between 0 and 20
+  random_vectors <- replicate(20, sample(0:60, 10, replace = TRUE))
+  # assign  name to each vector
+  species <- c("clownfish", "damselfish", "parrotfish", "butterflyfish", "angelfish", "wrasse",
+               "surgeonfish", "grouper", "snapper", "triggerfish", "blenny", "goby",
+               "hawkfish", "moray", "barracuda", "cardinalfish", "boxfish", "lionfish",
+               "pufferfish", "tang")
+
+  for(i in 1:20){
+    if(i == sample(1:20, 1)){
+      assign(paste0(species[i]), as.character(random_vectors[,i]), inherits = TRUE)
+      } else {
+        assign(paste0(species[i]), random_vectors[,i], inherits = TRUE)
+      }
+    }
+}
